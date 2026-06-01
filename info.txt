@@ -1,0 +1,201 @@
+Why use <aside>?
+
+<aside> represents content that is related to the main content but not the main focus.
+
+Examples:
+
+Sidebar navigation
+Related articles
+Advertisements
+Extra information boxes
+
+Your layout:
+
+┌─────────────┬───────────────────┐
+│ Sidebar     │ Main Content      │
+│             │                   │
+└─────────────┴───────────────────┘
+
+The sidebar helps users navigate, but it's not the primary content.
+
+So:
+
+<aside>
+    ...
+</aside>
+
+makes sense.
+
+Could you use a <div>?
+
+<div>
+    ...
+</div>
+
+Yes.
+
+But <aside> tells:
+
+Browsers
+Search engines
+Screen readers
+Other developers
+
+"This section is supplementary content."
+
+Why use <main>?
+
+<main> represents the primary content of the page.
+
+There should usually be only one <main> per page.
+
+Example:
+
+Sidebar       ← aside
+Main Content  ← main
+
+For your tracker:
+
+<main>
+    Movies
+    Tabs
+    Search
+    Movie Cards
+</main>
+
+Everything the user came to see belongs here.
+
+Without <main>:
+
+<div>
+    ...
+</div>
+
+works, but doesn't communicate meaning.
+
+Why use <header>?
+
+<header> represents introductory content for a page or section.
+
+Examples:
+
+<header>
+    <h1>Movies</h1>
+</header>
+
+or
+
+<header>
+    Logo
+    Navigation
+</header>
+
+In your screenshot:
+
+Movies
+
+at the top is a page heading.
+
+So:
+
+<header>
+    <h1>Movies</h1>
+</header>
+
+is appropriate.
+
+A page can have multiple headers.
+
+For example:
+
+<header>
+    Site Header
+</header>
+
+<article>
+    <header>
+        Article Title
+    </header>
+</article>
+Why use <nav>?
+
+<nav> represents navigation links.
+
+Examples:
+
+<nav>
+    Home
+    About
+    Contact
+</nav>
+
+or
+
+<nav>
+    Watching
+    Watched
+    Favorites
+</nav>
+
+In your app:
+
+Watching
+Want To Watch
+Continue Later
+Watched
+
+These tabs let the user move between sections.
+
+That's navigation.
+
+So:
+
+<nav>
+    ...
+</nav>
+
+fits perfectly.
+
+When should I use <div>?
+
+Use <div> when:
+
+The section has no special meaning.
+
+Example:
+
+<div class="movie-card">
+    ...
+</div>
+
+A movie card is not:
+
+Header
+Navigation
+Main content
+Sidebar
+
+It's just a container.
+
+So <div> is fine.
+
+Quick Rule
+
+Ask yourself:
+
+Does this section have a specific purpose?
+
+If yes, use a semantic tag:
+
+Purpose	Tag
+Main page content	<main>
+Sidebar / related content	<aside>
+Intro/title area	<header>
+Navigation links	<nav>
+Footer area	<footer>
+Standalone content section	<section>
+Independent piece of content	<article>
+
+If none fit:
+
+<div> </div>
