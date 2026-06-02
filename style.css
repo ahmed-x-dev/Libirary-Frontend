@@ -251,10 +251,11 @@ body {
 /* --- STATUS TABS FILTER BAR --- */
 #status-tabs {
     display: flex;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    overflow-x: auto; /* Handles small screens safely */
-    padding-bottom: 0.5rem;
+    justify-content: center; /* This pushes all the buttons to the middle */
+    align-items: center;
+    gap: 10px; /* Adds a nice even space between each button */
+    flex-wrap: wrap; /* Prevents the buttons from shrinking too much on mobile screens */
+    margin-bottom: 20px; /* Optional: Gives some breathing room before the media grid */
 }
 
 #status-tabs button {
@@ -400,4 +401,509 @@ body {
     font-size: 0.8rem;
     color: #8e8e93;
     font-weight: 500;
+}
+
+
+/* --- SINGLE VIEW TOGGLE BUTTON --- */
+#view-toggle-btn {
+    background-color: #1a1a1e;
+    border: 1px solid #2a2a30;
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+#view-toggle-btn:hover {
+    background-color: #24242b;
+}
+
+/* --- THE ALTERNATIVE LIST VIEW STYLES --- */
+/* When JS slaps the .list-view class on the grid, alter layout directions */
+#media-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Tighter gap for clean list rows */
+}
+
+#media-grid.list-view .media-card {
+    flex-direction: row; /* Layout poster and details side-by-side */
+    align-items: center;
+    height: 80px; /* Compact row size */
+}
+
+#media-grid.list-view .media-card:hover {
+    transform: translateX(4px); /* Slides slightly right instead of lifting up */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#media-grid.list-view .media-card-poster {
+    width: 55px; /* Shrink down the image container for the list row */
+    height: 100%;
+    aspect-ratio: auto;
+}
+
+#media-grid.list-view .media-card-info {
+    padding: 0 1rem;
+    flex-direction: row; /* Place Title and Year on the same line */
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#media-grid.list-view .media-card-title {
+    line-clamp: 1; /* Clamp to a single line in list view */
+    -webkit-line-clamp: 1; /* Clamp to a single line in list view */
+    font-size: 1rem;
+}
+
+
+/* --- EMPTY STATE STYLING --- */
+#empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #8e8e93;
+}
+
+#empty-state p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+#empty-state button {
+    background-color: #ffffff;
+    color: #121212;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#empty-state button:hover {
+    background-color: #e5e5ea;
+}
+
+
+
+
+
+/* --- GLOBAL DIALOG REFINEMENTS --- */
+dialog {
+    background-color: #1a1a1e;
+    color: #f5f5f7;
+    border: 1px solid #2a2a30;
+    border-radius: 16px;
+    padding: 0; /* Let inner content handle containment padding */
+    outline: none;
+    max-height: 85vh;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.8);
+    transform: translateY(20px) scale(0.98);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), 
+                opacity 0.3s ease, 
+                display 0.3s allow-discrete;
+}
+
+dialog[open] {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease, display 0.3s allow-discrete;
+}
+
+dialog[open]::backdrop {
+    opacity: 1;
+}
+
+/* Universal Modal Layout Content Container */
+#modal-content, #search-modal-find-section {
+    padding: 2rem;
+    position: relative;
+}
+
+/* Universal Close Buttons */
+#modal-close-btn, #search-modal-close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: transparent;
+    border: none;
+    color: #8e8e93;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s;
+}
+
+#modal-close-btn:hover, #search-modal-close-btn:hover {
+    color: #ffffff;
+}
+
+/* --- ITEM DETAIL MODAL MAIN ENGINE (#item-modal) --- */
+#item-modal {
+    max-width: 680px;
+    width: 90%;
+}
+
+/* Sub-Tab Navigation Header */
+#modal-tabs {
+    display: flex;
+    gap: 1.5rem;
+    border-bottom: 1px solid #2a2a30;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#modal-tabs button {
+    background: transparent;
+    border: none;
+    color: #8e8e93;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.25rem 0;
+    position: relative;
+}
+
+#modal-tabs button.active {
+    color: #ffffff;
+}
+
+#modal-tabs button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+}
+
+/* Side-by-Side Flex Layout Container */
+#modal-body {
+    display: flex;
+    gap: 2rem;
+}
+
+#modal-poster {
+    flex-shrink: 0;
+}
+
+#modal-poster img {
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+#modal-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
+}
+
+#modal-item-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+#modal-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #8e8e93;
+}
+
+#modal-meta span:not(:last-child)::after {
+    content: '•';
+    margin-left: 0.75rem;
+}
+
+/* Custom Interactive Select Options */
+#modal-status-select, #search-modal-status {
+    background-color: #24242b;
+    color: #ffffff;
+    border: 1px solid #3a3a42;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 200px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Action Rows Controls */
+#modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+#watch-trailer-btn, #read-plot-btn {
+    background-color: #24242b;
+    border: 1px solid #3a3a42;
+    color: #ffffff;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+}
+
+#watch-trailer-btn:hover, #read-plot-btn:hover {
+    background-color: #2e2e37;
+}
+
+#favorite-btn {
+    background-color: #24242b;
+    border: 1px solid #3a3a42;
+    color: #8e8e93;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#favorite-btn.is-favorite {
+    color: #ff453a;
+    background-color: rgba(255, 69, 58, 0.15);
+    border-color: #ff453a;
+}
+
+/* Custom Interactive Star Systems */
+#modal-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    background: #24242b;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+#star-rating {
+    display: flex;
+    gap: 0.15rem;
+}
+
+.star {
+    background: transparent;
+    border: none;
+    color: #3a3a42;
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.1s ease, transform 0.1s ease;
+}
+
+.star:hover {
+    transform: scale(1.15);
+}
+
+.star.filled {
+    color: #ffb300;
+}
+
+#rating-value {
+    font-weight: 700;
+    color: #ffb300;
+    min-width: 20px;
+}
+
+
+
+/* --- FIND TAB: SEARCH ROW --- */
+#find-request-row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#find-search-input {
+    flex-grow: 1;
+    background-color: #24242b;
+    border: 1px solid #3a3a42;
+    color: #ffffff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+#find-search-input:focus {
+    border-color: #52525c;
+}
+
+/* The Start Button */
+#find-start-btn {
+    background-color: #ffffff;
+    color: #121212;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+#find-start-btn:hover {
+    background-color: #e5e5ea;
+}
+
+#find-start-btn:active {
+    transform: scale(0.97);
+}
+
+
+/* --- FIND TAB: RESULT AREA --- */
+#find-result-area {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #1a1a1e;
+    border: 1px dashed #3a3a42;
+    border-radius: 8px;
+}
+
+.result-label {
+    color: #8e8e93;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* The Site Link Button (An <a> tag styled as a button) */
+#site-result-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #24242b;
+    color: #4da6ff; /* A nice blue to indicate a clickable link */
+    border: 1px solid #4da6ff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px; /* Pill shape to make it distinct from standard buttons */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#site-result-btn:hover {
+    background-color: rgba(77, 166, 255, 0.1);
+    box-shadow: 0 4px 12px rgba(77, 166, 255, 0.15);
+}
+
+.external-icon {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* --- THE GLOBAL OVERLAY ENGINE (#search-modal) --- */
+#search-modal {
+    max-width: 800px;
+    width: 95%;
+}
+
+
+#search-media-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1.25rem;
+    padding: 0 2rem 2rem 2rem;
+    max-height: 45vh;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments for mobile phone viewports */
+@media (max-width: 550px) {
+    #modal-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    #modal-rating {
+        margin: 0 auto;
+    }
+    #modal-actions {
+        justify-content: center;
+    }
+}
+
+
+
+/* --- SEARCH MODAL 3:1 LAYOUT --- */
+#search-modal-controls-row {
+    display: flex;
+    gap: 1rem; /* Space between the input and dropdown */
+    align-items: center;
+    margin-top: 2rem; /* Clears the close button */
+    margin-bottom: 1.5rem;
+}
+
+#search-modal-input {
+    flex: 3; /* Keeps the 3:1 ratio */
+    background-color: #24242b; /* Restores the dark background */
+    border: 1px solid #3a3a42; /* Restores the border */
+    color: #ffffff; /* Restores white text */
+    padding: 0.4rem 1.2rem; /* Restores the inner spacing */
+    border-radius: 8px; /* Restores the rounded corners */
+    font-size: 1.1rem;
+    outline: none;
+    box-sizing: border-box;
+    margin: 0; /* Ensures it sits perfectly next to the dropdown */
+}
+
+#search-modal-status {
+    flex: 1; /* Takes up 1 part of the width */
+    width: 100% !important; 
+    max-width: none !important; /* Overrides the previous 200px limit */
+    margin: 0;
+}
+
+/* On very small mobile screens, stack them vertically so they aren't squished */
+@media (max-width: 500px) {
+    #search-modal-controls-row {
+        flex-direction: column;
+    }
+    #search-modal-input, #search-modal-status {
+        width: 100%;
+    }
 }

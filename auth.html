@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Tracker - Authentication</title>
+    <link rel="stylesheet" href="auth-style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <button id="tab-login" class="active">Log In</button>
+            <button id="tab-register">Sign Up</button>
+        </div>
+
+        <form id="form-login" class="auth-form">
+            <h2>Welcome Back</h2>
+            <p class="subtitle">Enter your details to access your library</p>
+            
+            <div class="input-group">
+                <label for="login-username">Username</label>
+                <input type="text" id="login-username" required autocomplete="username">
+            </div>
+            
+            <div class="input-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-submit">Sign In</button>
+            <p id="login-error" class="error-msg hidden"></p>
+        </form>
+
+        <form id="form-register" class="auth-form hidden">
+            <h2>Create Account</h2>
+            <p class="subtitle">Join and start tracking your media collection</p>
+            
+            <div class="input-group">
+                <label for="reg-username">Username</label>
+                <input type="text" id="reg-username" required minlength="3">
+            </div>
+
+            <div class="input-group">
+                <label for="reg-email">Email Address</label>
+                <input type="email" id="reg-email" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" required minlength="6">
+            </div>
+
+            <button type="submit" class="btn-submit">Register</button>
+            <p id="reg-error" class="error-msg hidden"></p>
+            <p id="reg-success" class="success-msg hidden">Account created successfully! Switching to Login...</p>
+        </form>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

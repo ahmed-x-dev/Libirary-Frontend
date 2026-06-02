@@ -105,8 +105,7 @@
             <div id="header-controls" style="display: none;">
                 <button data-action="add-item" id="add-btn" title="Add new item">+</button>
                 <div id="view-toggle">
-                    <button data-view="grid" class="active" title="Grid view">&#9783;</button>
-                    <button data-view="list" title="List view">&#9776;</button>
+                    <button id="view-toggle-btn" data-view="grid" title="Switch to List View">⊞</button>
                 </div>
                 <select id="sort-select" name="sort">
                     <option value="title-asc">Title (A-Z)</option>
@@ -148,19 +147,11 @@
             </section>
 
             <section id="media-grid">
-                <article class="media-card" data-id="1" data-type="movie" data-status="want-to-watch">
-                    <div class="media-card-poster">
-                        <img src="https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg" alt="Avatar poster" width="150" height="220">
-                    </div>
-                    <div class="media-card-info">
-                        <h3 class="media-card-title">Avatar Aang: The Last Airbender</h3>
-                        <span class="media-card-year">2026</span>
-                    </div>
-                </article>
+                <!-- Media cards will be injected here by JS -->
             </section>
 
             <section id="empty-state" hidden>
-                <p>No items found. Add something or try a different filter.</p>
+                <p>No items found. Try adding something .</p>
                 <button data-action="add-item">+ Add Item</button>
             </section>
         </section>
@@ -193,8 +184,8 @@
                     <div id="modal-poster">
                         <img
                             id="modal-poster-img"
-                            src="https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg"
-                            alt="Poster"
+                            src=""
+                            alt="Media Poster"
                             width="150"
                             height="220"
                         >
@@ -204,13 +195,13 @@
                     <div id="modal-details">
 
                         <!-- Title -->
-                        <h2 id="modal-item-title">Avatar Aang: The Last Airbender</h2>
+                        <h2 id="modal-item-title"></h2>
 
                         <!-- Meta row: year, duration, genres -->
                         <div id="modal-meta">
-                            <span id="modal-item-year">2026</span>
-                            <span id="modal-item-duration">1h 39m</span>
-                            <span id="modal-item-genres">Animation, Action, Adventure, Fantasy</span>
+                            <span id="modal-item-year"></span>
+                            <span id="modal-item-duration"></span>
+                            <span id="modal-item-genres"></span>
                         </div>
 
                         <!-- Status dropdown -->
@@ -260,28 +251,34 @@
             </div>
 
             <!-- ── FIND TAB ── -->
-            <div id="modal-tab-find" class="modal-tab-panel" hidden>
-
-                <div id="find-search-bar">
-                    <input
-                        type="text"
-                        id="find-search-input"
-                        placeholder="Search to find and link this item..."
-                        autocomplete="off"
-                    >
-                    <button data-action="find-search">Search</button>
-                </div>
-
-                <!-- Search results injected here by JS -->
-                <ul id="find-results-list">
-                </ul>
-
+            <div id="modal-tab-info" class="modal-tab-panel">
+                <div id="modal-body">
+                    </div>
             </div>
 
-            <!-- Modal Footer -->
-            <footer id="modal-footer">
-                <button data-action="save-item" id="modal-ok-btn">Ok</button>
-            </footer>
+            <div id="modal-tab-find" class="modal-tab-panel" hidden>
+                
+                <div id="find-request-row">
+                    <input 
+                        type="text" 
+                        id="find-search-input" 
+                        placeholder="Enter movie title..." 
+                        autocomplete="off"
+                    >
+                    <button id="find-start-btn">
+                        Start Search
+                    </button>
+                </div>
+
+                <div id="find-result-area">
+                    <span class="result-label">Available on:</span>
+                    <a href="https://example.com" target="_blank" id="site-result-btn">
+                        <span id="site-result-name">Target Site Name</span>
+                        <span class="external-icon">↗</span>
+                    </a>
+                </div>
+
+            </div>
 
         </div>
 
@@ -296,17 +293,14 @@
                 <button data-action="close-search-modal" id="search-modal-close-btn" title="Close">&#x2715;</button>
             </div>
 
-            <div id="search-modal-input-row">
-                <input
+            <div id="search-modal-controls-row">
+                <input 
                     type="text"
                     id="search-modal-input"
                     placeholder="Type to search..."
                     autocomplete="off"
-                    aria-label="Search media collection">
+                    aria-label="Search media collection"
                 >
-            </div>
-
-            <div id="search-modal-status-row">
                 <select id="search-modal-status" name="search-modal-status">
                     <option value="movies">Movies</option>
                     <option value="series">Series</option>
