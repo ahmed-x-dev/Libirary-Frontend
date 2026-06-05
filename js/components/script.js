@@ -25,7 +25,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     initializeModalHandlers();
     initializeStarRating();
     initializeLogout();
+    initializeAddItemButton();
 });
+
+function initializeAddItemButton() {
+    // Use event delegation to handle both add buttons
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('[data-action="add-item"]')) {
+            // This catches both buttons automatically
+            console.log("Add item button clicked!");
+            openSearchModal();
+        }
+    });
+}
 
 // ==========================================================================
 // SELECT ROUTING INTERFACE ELEMENTS
@@ -215,14 +227,6 @@ function initializeStarRating() {
     // Initialize with default value
     updateStarDisplay(parseInt(ratingLabelValue.textContent, 10) || 5);
 }
-
-
-
-
-
-
-
-
 
 
 
