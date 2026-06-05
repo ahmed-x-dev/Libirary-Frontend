@@ -392,3 +392,16 @@ renderLibrary(dummyLibraryData);
 
 // Add this line at the very bottom of your JavaScript file: (remove when we remove the dummy card in index.html)
 document.querySelector('#status-tabs button[data-status="want-to-watch"]')?.click();
+
+// ==========================================================================
+// 🚪 LOGOUT HANDLER
+// ==========================================================================
+const logoutBtn = document.getElementById('logout-btn');
+if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+        // Clear the access token from localStorage
+        localStorage.removeItem('access_token');
+        // Redirect to auth page
+        window.location.href = 'pages/auth.html';
+    });
+}

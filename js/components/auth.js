@@ -56,7 +56,7 @@ formLogin.addEventListener('submit', async (e) => {
         localStorage.setItem('access_token', data.access_token);
 
         // Redirect to your main library page
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
 
     } catch (err) {
         errorEl.textContent = err.message;
@@ -94,7 +94,7 @@ formLogin.addEventListener('submit', async (e) => {
         localStorage.setItem('access_token', data.access_token);
 
         // Redirect directly to your main media tracker dashboard
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
 
     } catch (err) {
         errorEl.textContent = err.message;
