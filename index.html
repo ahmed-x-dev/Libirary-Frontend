@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Media Tracker</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script src="/js/components/script.js" defer></script>
+    <script type="module" src="/js/components/script.js"></script>
     
 </head>
 <body>
@@ -129,8 +129,8 @@
 
         <section id="view-media" class="content-view" hidden>
             <nav id="status-tabs">
-                <button data-status="watching">Watching</button>
-                <button data-status="want-to-watch" class="active">Want To Watch</button>
+                <button data-status="watching" class="active">Watching</button>
+                <button data-status="want-to-watch">Want To Watch</button>
                 <button data-status="on-hold">Continue Later</button>
                 <button data-status="dropped">Don't Want To Continue</button>
                 <button data-status="completed">Watched</button>
