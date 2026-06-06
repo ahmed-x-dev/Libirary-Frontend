@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.app-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-header__menu {
+    margin-right: auto;
+    border: 0;
+    background-color: transparent;
+    font-size: var(--font-size-xl);
+}
+
+.app-header__menu.active {
+    color: var(--color-accent);
+}
+
+.app-header__title-group,
+.app-header__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.app-header__title {
+    margin: 0;
+    font-size: var(--font-size-2xl);
+    font-weight: var(--font-weight-bold);
+}

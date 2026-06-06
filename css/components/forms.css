@@ -1,0 +1,25 @@
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+
+.form-select {
+    width: 100%;
+    max-width: 12.5rem;
+    padding: 0.6rem var(--space-4);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    outline: none;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-strong);
+}
+
+.form-select:focus {
+    border-color: var(--color-border-focus);
+}
+
+.app-header__select {
+    padding-block: var(--space-2);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.9rem;
+}

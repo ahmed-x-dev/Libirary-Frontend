@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Dialogs
+   ========================================================================== */
+
+.dialog {
+    max-height: 85vh;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    outline: none;
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-dialog);
+    color: var(--color-text);
+    opacity: 0;
+    transform: translateY(var(--space-5)) scale(0.98);
+    transition: transform var(--transition-base), opacity var(--transition-base), display var(--transition-base) allow-discrete;
+}
+
+.dialog[open] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(0.625rem);
+    opacity: 0;
+    transition: opacity var(--transition-base), display var(--transition-base) allow-discrete;
+}
+
+.dialog[open]::backdrop {
+    opacity: 1;
+}
+
+.dialog--item {
+    width: 90%;
+    max-width: var(--size-dialog-item);
+}
+
+.dialog--search {
+    width: 95%;
+    max-width: var(--size-dialog-search);
+}
+
+.dialog__content,
+.search-modal {
+    position: relative;
+    padding: var(--space-8);
+}
+
+.dialog__close {
+    position: absolute;
+    z-index: 10;
+    top: var(--space-5);
+    right: var(--space-5);
+    border: 0;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    font-size: var(--font-size-lg);
+    transition: color var(--transition-fast);
+}
+
+.dialog__close:hover {
+    color: var(--color-text-strong);
+}
+
+.modal-tabs {
+    display: flex;
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.modal-tabs__button {
+    position: relative;
+    padding: var(--space-1) 0;
+    border: 0;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    font-size: var(--space-4);
+    font-weight: var(--font-weight-semibold);
+}
+
+.modal-tabs__button.active {
+    color: var(--color-text-strong);
+}
+
+.modal-tabs__button.active::after {
+    position: absolute;
+    bottom: -0.6rem;
+    left: 0;
+    width: 100%;
+    height: 0.125rem;
+    background-color: var(--color-text-strong);
+    content: "";
+}
+
+.item-detail {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.item-detail__poster {
+    flex-shrink: 0;
+}
+
+.item-detail__poster img {
+    border-radius: var(--radius-md);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+}
+
+.item-detail__details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: var(--space-4);
+}
+
+.item-detail__title {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+}
+
+.item-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.item-detail__meta span:not(:last-child)::after {
+    margin-left: var(--space-3);
+    content: ".";
+}
+
+.item-detail__actions,
+.rating,
+.rating__stars,
+.find-panel__request,
+.find-panel__result,
+.find-panel__link,
+.search-modal__controls {
+    display: flex;
+    align-items: center;
+}
+
+.item-detail__actions {
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.rating {
+    width: fit-content;
+    gap: var(--space-4);
+    margin-top: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface-raised);
+}
+
+.rating__stars {
+    gap: 0.15rem;
+}
+
+.rating__star {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    color: var(--color-border-strong);
+    font-size: 1.25rem;
+    transition: color 0.1s ease, transform 0.1s ease;
+}
+
+.rating__star:hover {
+    transform: scale(1.15);
+}
+
+.rating__star.filled {
+    color: var(--color-rating);
+}
+
+.rating__value {
+    min-width: 1.25rem;
+    color: var(--color-rating);
+    font-weight: var(--font-weight-bold);
+}
+
+.find-panel__request {
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+.find-panel__input {
+    flex-grow: 1;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    outline: none;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-strong);
+    font-size: var(--font-size-lg);
+    transition: border-color var(--transition-fast);
+}
+
+.find-panel__input:focus {
+    border-color: var(--color-border-focus);
+}
+
+.find-panel__result {
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border: 1px dashed var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+}
+
+.find-panel__label {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+}
+
+.find-panel__link {
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--color-link);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-surface-raised);
+    color: var(--color-link);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.find-panel__link:hover {
+    background-color: rgba(77, 166, 255, 0.1);
+    box-shadow: var(--shadow-link);
+}
+
+.find-panel__external-icon {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.search-modal__controls {
+    gap: var(--space-4);
+    margin: var(--space-8) 0 var(--space-6);
+}
+
+.search-modal__input {
+    flex: 3;
+    min-width: 0;
+    margin: 0;
+    padding: 0.4rem 1.2rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    outline: none;
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-strong);
+    font-size: var(--font-size-lg);
+}
+
+.search-modal__select {
+    flex: 1;
+    max-width: none;
+    margin: 0;
+}

@@ -11,103 +11,104 @@
 <body>
 
     <!-- ===== SIDEBAR ===== -->
-    <aside id="sidebar">
+    <aside id="sidebar" class="app-sidebar">
 
-        <section class="sidebar-section">
-            <h3 class="sidebar-section-title">Media</h3>
-            <nav>
-                <ul>
-                    <li>
-                        <button data-section="movies">
-                            <span class="sidebar-icon">🎬</span>
-                            <span class="sidebar-text">Movies</span>
+        <section class="app-sidebar__section">
+            <h3 class="app-sidebar__title">Media</h3>
+            <nav class="app-sidebar__nav">
+                <ul class="app-sidebar__list">
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="movies">
+                            <span class="app-sidebar__icon">🎬</span>
+                            <span class="app-sidebar__text">Movies</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="tv-series">
-                            <span class="sidebar-icon">📺</span>
-                            <span class="sidebar-text">TV Series</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="tv-series">
+                            <span class="app-sidebar__icon">📺</span>
+                            <span class="app-sidebar__text">TV Series</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="anime">
-                            <span class="sidebar-icon">⛩️</span>
-                            <span class="sidebar-text">Anime</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="anime">
+                            <span class="app-sidebar__icon">⛩️</span>
+                            <span class="app-sidebar__text">Anime</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="games">
-                            <span class="sidebar-icon">🎮</span>
-                            <span class="sidebar-text">Games</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="games">
+                            <span class="app-sidebar__icon">🎮</span>
+                            <span class="app-sidebar__text">Games</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="books">
-                            <span class="sidebar-icon">📚</span>
-                            <span class="sidebar-text">Books</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="books">
+                            <span class="app-sidebar__icon">📚</span>
+                            <span class="app-sidebar__text">Books</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="manga">
-                            <span class="sidebar-icon">📖</span>
-                            <span class="sidebar-text">Manga</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="manga">
+                            <span class="app-sidebar__icon">📖</span>
+                            <span class="app-sidebar__text">Manga</span>
                         </button>
                     </li>
                 </ul>
             </nav>
         </section>
 
-        <section class="sidebar-section">
-            <h3 class="sidebar-section-title">Account</h3>
-            <nav>
-                <ul>
-                    <li>
-                        <button data-section="home" class="active">
-                            <span class="sidebar-icon">🏠</span>
-                            <span class="sidebar-text">Home</span>
+        <section class="app-sidebar__section">
+            <h3 class="app-sidebar__title">Account</h3>
+            <nav class="app-sidebar__nav">
+                <ul class="app-sidebar__list">
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button active" data-section="home">
+                            <span class="app-sidebar__icon">🏠</span>
+                            <span class="app-sidebar__text">Home</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="profile">
-                            <span class="sidebar-icon">👤</span>
-                            <span class="sidebar-text">Profile</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="profile">
+                            <span class="app-sidebar__icon">👤</span>
+                            <span class="app-sidebar__text">Profile</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="dashboard">
-                            <span class="sidebar-icon">📊</span>
-                            <span class="sidebar-text">Dashboard</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="dashboard">
+                            <span class="app-sidebar__icon">📊</span>
+                            <span class="app-sidebar__text">Dashboard</span>
                         </button>
                     </li>
-                    <li>
-                        <button data-section="settings">
-                            <span class="sidebar-icon">⚙️</span>
-                            <span class="sidebar-text">Settings</span>
+                    <li class="app-sidebar__item">
+                        <button class="app-sidebar__button" data-section="settings">
+                            <span class="app-sidebar__icon">⚙️</span>
+                            <span class="app-sidebar__text">Settings</span>
                         </button>
                     </li>
                 </ul>
             </nav>
         </section>
 
-        <button data-action="logout" id="logout-btn">
-            <span class="sidebar-icon">🚪</span>
-            <span class="sidebar-text">Logout</span>
+        <button class="app-sidebar__button app-sidebar__button--logout" data-action="logout" id="logout-btn">
+            <span class="app-sidebar__icon">🚪</span>
+            <span class="app-sidebar__text">Logout</span>
         </button>
 
     </aside>
 
     <!-- ===== MAIN CONTENT ===== -->
-    <main id="main-content">
+    <main id="main-content" class="app-main">
 
-        <header id="main-header">
-            <div id="header-left">
-                <h1 id="page-title">Home</h1> </div>
-            <div id="header-controls" style="display: none;">
-                <button data-action="add-item" id="add-btn" title="Add new item">+</button>
-                <div id="view-toggle">
-                    <button id="view-toggle-btn" data-view="grid" title="Switch to List View">⊞</button>
+        <header id="main-header" class="app-header">
+            <button id="menu-toggle" class="icon-button app-header__menu" aria-label="Toggle menu" style="display:none;">☰</button>
+            <div id="header-left" class="app-header__title-group">
+                <h1 id="page-title" class="app-header__title">Home</h1> </div>
+            <div id="header-controls" class="app-header__controls" style="display: none;">
+                <button class="icon-button icon-button--accent" data-action="add-item" id="add-btn" title="Add new item">+</button>
+                <div id="view-toggle" class="view-toggle">
+                    <button class="icon-button" id="view-toggle-btn" data-view="grid" title="Switch to List View">⊞</button>
                 </div>
-                <select id="sort-select" name="sort">
+                <select id="sort-select" class="form-select app-header__select" name="sort">
                     <option value="title-asc">Title (A-Z)</option>
                     <option value="title-desc">Title (Z-A)</option>
                     <option value="year-asc">Year (Oldest)</option>
@@ -121,38 +122,38 @@
         </header>
 
         <section id="view-home" class="content-view">
-            <div class="welcome-container">
+            <div class="welcome">
                 <h2>Welcome Back! 👋</h2>
                 <p>Track, rate, and organize your favorite media collections. Select a category from the sidebar menu to view your library items.</p>
             </div>
         </section>
 
         <section id="view-media" class="content-view" hidden>
-            <nav id="status-tabs">
-                <button data-status="watching" class="active">Watching</button>
-                <button data-status="want-to-watch">Want To Watch</button>
-                <button data-status="on-hold">Continue Later</button>
-                <button data-status="dropped">Don't Want To Continue</button>
-                <button data-status="completed">Watched</button>
-                <button data-status="favorites">Favorites</button>
+            <nav id="status-tabs" class="status-tabs">
+                <button class="status-tabs__button active" data-status="watching">Watching</button>
+                <button class="status-tabs__button" data-status="want-to-watch">Want To Watch</button>
+                <button class="status-tabs__button" data-status="on-hold">Continue Later</button>
+                <button class="status-tabs__button" data-status="dropped">Don't Want To Continue</button>
+                <button class="status-tabs__button" data-status="completed">Watched</button>
+                <button class="status-tabs__button" data-status="favorites">Favorites</button>
             </nav>
 
-            <section id="search-area">
-                <div id="search-bar">
-                    <button data-action="search" title="Search">&#128269;</button>
-                    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+            <section id="search-area" class="toolbar">
+                <div id="search-bar" class="search-box">
+                    <button class="search-box__button" data-action="search" title="Search">&#128269;</button>
+                    <input class="search-box__input" type="text" id="search-input" placeholder="Search..." autocomplete="off">
                 </div>
-                <button data-action="random-pick" id="random-btn" title="Pick something random">&#127922;</button>
-                <button data-action="refresh" id="refresh-btn" title="Refresh">&#8635;</button>
+                <button class="icon-button" data-action="random-pick" id="random-btn" title="Pick something random">&#127922;</button>
+                <button class="icon-button" data-action="refresh" id="refresh-btn" title="Refresh">&#8635;</button>
             </section>
 
-            <section id="media-grid">
+            <section id="media-grid" class="media-grid">
                 <!-- Media cards will be injected here by JS -->
             </section>
 
-            <section id="empty-state" hidden>
+            <section id="empty-state" class="empty-state" hidden>
                 <p>No items found. Try adding something .</p>
-                <button data-action="add-item">+ Add Item</button>
+                <button class="button button--light" data-action="add-item">+ Add Item</button>
             </section>
         </section>
 
@@ -163,25 +164,25 @@
     </main>
 
     <!-- ===== ITEM DETAIL MODAL ===== -->
-    <dialog id="item-modal">
-        <div id="modal-content">
+    <dialog id="item-modal" class="dialog dialog--item">
+        <div id="modal-content" class="dialog__content">
 
             <!-- Close Button -->
-            <button data-action="close-modal" id="modal-close-btn" title="Close">&#x2715;</button>
+            <button class="dialog__close" data-action="close-modal" id="modal-close-btn" title="Close">&#x2715;</button>
 
             <!-- Modal Tabs -->
-            <nav id="modal-tabs">
-                <button data-modal-tab="info" class="active">Info</button>
-                <button data-modal-tab="find">Find</button>
+            <nav id="modal-tabs" class="modal-tabs">
+                <button class="modal-tabs__button active" data-modal-tab="info">Info</button>
+                <button class="modal-tabs__button" data-modal-tab="find">Find</button>
             </nav>
 
             <!-- ── INFO TAB ── -->
             <div id="modal-tab-info" class="modal-tab-panel">
 
-                <div id="modal-body">
+                <div id="modal-body" class="item-detail">
 
                     <!-- Left: Poster -->
-                    <div id="modal-poster">
+                    <div id="modal-poster" class="item-detail__poster">
                         <img
                             id="modal-poster-img"
                             src=""
@@ -192,21 +193,21 @@
                     </div>
 
                     <!-- Right: Details -->
-                    <div id="modal-details">
+                    <div id="modal-details" class="item-detail__details">
 
                         <!-- Title -->
-                        <h2 id="modal-item-title"></h2>
+                        <h2 id="modal-item-title" class="item-detail__title"></h2>
 
                         <!-- Meta row: year, duration, genres -->
-                        <div id="modal-meta">
+                        <div id="modal-meta" class="item-detail__meta">
                             <span id="modal-item-year"></span>
                             <span id="modal-item-duration"></span>
                             <span id="modal-item-genres"></span>
                         </div>
 
                         <!-- Status dropdown -->
-                        <div id="modal-status-row">
-                            <select id="modal-status-select" name="modal-status">
+                        <div id="modal-status-row" class="item-detail__status">
+                            <select id="modal-status-select" class="form-select" name="modal-status">
                                 <option value="planned">Planned</option>
                                 <option value="in-progress">In Progress</option>
                                 <option value="completed">Completed</option>
@@ -216,33 +217,33 @@
                         </div>
 
                         <!-- Action buttons -->
-                        <div id="modal-actions">
-                            <button data-action="watch-trailer" id="watch-trailer-btn">
+                        <div id="modal-actions" class="item-detail__actions">
+                            <button class="button button--dark" data-action="watch-trailer" id="watch-trailer-btn">
                                 &#9654; Watch Trailer
                             </button>
-                            <button data-action="read-plot" id="read-plot-btn">
+                            <button class="button button--dark" data-action="read-plot" id="read-plot-btn">
                                 &#128196; Read Plot
                             </button>
-                            <button data-action="toggle-favorite" id="favorite-btn" title="Add to Favorites">
+                            <button class="icon-button favorite-button" data-action="toggle-favorite" id="favorite-btn" title="Add to Favorites">
                                 &#10084;
                             </button>
                         </div>
 
                         <!-- Star Rating -->
-                        <div id="modal-rating">
-                            <div id="star-rating" role="group" aria-label="Rating">
-                                <button class="star" data-value="1" title="1 star">&#9733;</button>
-                                <button class="star" data-value="2" title="2 stars">&#9733;</button>
-                                <button class="star" data-value="3" title="3 stars">&#9733;</button>
-                                <button class="star" data-value="4" title="4 stars">&#9733;</button>
-                                <button class="star" data-value="5" title="5 stars">&#9733;</button>
-                                <button class="star" data-value="6" title="6 stars">&#9733;</button>
-                                <button class="star" data-value="7" title="7 stars">&#9733;</button>
-                                <button class="star" data-value="8" title="8 stars">&#9733;</button>
-                                <button class="star" data-value="9" title="9 stars">&#9733;</button>
-                                <button class="star" data-value="10" title="10 stars">&#9733;</button>
+                        <div id="modal-rating" class="rating">
+                            <div id="star-rating" class="rating__stars" role="group" aria-label="Rating">
+                                <button class="rating__star star" data-value="1" title="1 star">&#9733;</button>
+                                <button class="rating__star star" data-value="2" title="2 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="3" title="3 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="4" title="4 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="5" title="5 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="6" title="6 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="7" title="7 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="8" title="8 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="9" title="9 stars">&#9733;</button>
+                                <button class="rating__star star" data-value="10" title="10 stars">&#9733;</button>
                             </div>
-                            <span id="rating-value">5</span>
+                            <span id="rating-value" class="rating__value">5</span>
                         </div>
 
                     </div>
@@ -251,30 +252,26 @@
             </div>
 
             <!-- ── FIND TAB ── -->
-            <div id="modal-tab-info" class="modal-tab-panel">
-                <div id="modal-body">
-                    </div>
-            </div>
-
             <div id="modal-tab-find" class="modal-tab-panel" hidden>
                 
-                <div id="find-request-row">
+                <div id="find-request-row" class="find-panel__request">
                     <input 
+                        class="find-panel__input"
                         type="text" 
                         id="find-search-input" 
                         placeholder="Enter movie title..." 
                         autocomplete="off"
                     >
-                    <button id="find-start-btn">
+                    <button id="find-start-btn" class="button button--light">
                         Start Search
                     </button>
                 </div>
 
-                <div id="find-result-area">
-                    <span class="result-label">Available on:</span>
-                    <a href="https://example.com" target="_blank" id="site-result-btn">
+                <div id="find-result-area" class="find-panel__result">
+                    <span class="find-panel__label">Available on:</span>
+                    <a class="find-panel__link" href="https://example.com" target="_blank" id="site-result-btn">
                         <span id="site-result-name">Target Site Name</span>
-                        <span class="external-icon">↗</span>
+                        <span class="find-panel__external-icon">↗</span>
                     </a>
                 </div>
 
@@ -285,23 +282,24 @@
     </dialog>
 
     <!-- Search Modal -->
-    <dialog id="search-modal">
+    <dialog id="search-modal" class="dialog dialog--search">
 
-        <section id="search-modal-find-section">
+        <section id="search-modal-find-section" class="search-modal">
 
-            <div id="search-modal-header">
-                <button data-action="close-search-modal" id="search-modal-close-btn" title="Close">&#x2715;</button>
+            <div id="search-modal-header" class="search-modal__header">
+                <button class="dialog__close" data-action="close-search-modal" id="search-modal-close-btn" title="Close">&#x2715;</button>
             </div>
 
-            <div id="search-modal-controls-row">
+            <div id="search-modal-controls-row" class="search-modal__controls">
                 <input 
+                    class="search-modal__input"
                     type="text"
                     id="search-modal-input"
                     placeholder="Type to search..."
                     autocomplete="off"
                     aria-label="Search media collection"
                 >
-                <select id="search-modal-status" name="search-modal-status">
+                <select id="search-modal-status" class="form-select search-modal__select" name="search-modal-status">
                     <option value="movies">Movies</option>
                     <option value="series">Series</option>
                     <option value="anime">Anime</option>
@@ -314,11 +312,11 @@
         </section>
 
         <!-- Search Media Grid -->
-        <section id="search-media-grid">
+        <section id="search-media-grid" class="media-grid media-grid--search">
 
                 <!-- Example Media Card -->
                 <article class="media-card" data-id="1" data-type="movie" data-status="want-to-watch">
-                    <div class="media-card-poster">
+                    <div class="media-card__poster">
                         <img
                             src="https://image.tmdb.org/t/p/w500/29Jdsak3SrwGds5k1t43kH6Khed.jpg"
                             alt="Avatar Aang: The Last Airbender poster"
@@ -327,9 +325,9 @@
                         >
 
                     </div>
-                    <div class="media-card-info">
-                        <h3 class="media-card-title">Avatar Aang: The Last Airbender</h3>
-                        <span class="media-card-year">2026</span>
+                    <div class="media-card__info">
+                        <h3 class="media-card__title">Avatar Aang: The Last Airbender</h3>
+                        <span class="media-card__year">2026</span>
                     </div>
                 </article>
 

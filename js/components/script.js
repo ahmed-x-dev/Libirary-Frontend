@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initializeStarRating();
     initializeLogout();
     initializeAddItemButton();
+    initializeMobileMenu();
 });
 
 function initializeAddItemButton() {
@@ -37,6 +38,59 @@ function initializeAddItemButton() {
             openSearchModal();
         }
     });
+}
+
+// ==========================================================================
+// MOBILE MENU TOGGLE
+// ==========================================================================
+function initializeMobileMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const mainContent = document.getElementById('main-content');
+    
+    if (!menuToggle) return;
+
+    // Show menu toggle on mobile screens
+    function updateMenuToggleVisibility() {
+        if (window.innerWidth <= 768) {
+            menuToggle.style.display = 'flex';
+        } else {
+            menuToggle.style.display = 'none';
+            sidebar.classList.remove('active');
+        }
+    }
+
+    // Toggle sidebar on button click
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Close sidebar when clicking on a sidebar button
+    sidebar.querySelectorAll('button[data-section], button[data-action]').forEach(button => {
+        button.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        });
+    });
+
+    // Close sidebar when clicking outside on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 768 && sidebar.classList.contains('active')) {
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                menuToggle.classList.remove('active');
+            }
+        }
+    });
+
+    // Update visibility on resize
+    window.addEventListener('resize', updateMenuToggleVisibility);
+    
+    // Initial check
+    updateMenuToggleVisibility();
 }
 
 // ==========================================================================
@@ -57,7 +111,7 @@ function initializeSidebarRouting() {
             button.classList.add('active');
 
             // 2. Update Application Top Header Text
-            const sectionText = button.querySelector('.sidebar-text').textContent;
+            const sectionText = button.querySelector('.app-sidebar__text')?.textContent || '';
             if (pageTitle) pageTitle.textContent = sectionText;
 
             // 3. Clear All Content Views out of layout viewports

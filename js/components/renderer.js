@@ -34,7 +34,7 @@ export function renderLibrary(dataArray) {
 
         // Build card HTML with error handling
         card.innerHTML = `
-            <div class="media-card-poster">
+            <div class="media-card__poster">
                 <img 
                     src="${posterSrc}" 
                     onerror="this.onerror=null; this.src='${DEFAULT_POSTER}';" 
@@ -43,9 +43,9 @@ export function renderLibrary(dataArray) {
                     height="220"
                 >
             </div>
-            <div class="media-card-info">
-                <h3 class="media-card-title">${sanitizeHTML(item.title)}</h3>
-                <span class="media-card-year">${sanitizeHTML(item.year)}</span>
+            <div class="media-card__info">
+                <h3 class="media-card__title">${sanitizeHTML(item.title)}</h3>
+                <span class="media-card__year">${sanitizeHTML(item.year)}</span>
             </div>
         `;
 
@@ -73,8 +73,8 @@ export function showItemModal(card) {
     if (!modal) return;
 
     // Extract data from card
-    const title = card.querySelector('.media-card-title')?.textContent || '';
-    const year = card.querySelector('.media-card-year')?.textContent || '';
+    const title = card.querySelector('.media-card__title')?.textContent || '';
+    const year = card.querySelector('.media-card__year')?.textContent || '';
     const image = card.querySelector('img')?.src || DEFAULT_POSTER;
 
     // Update modal content

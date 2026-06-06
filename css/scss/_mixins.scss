@@ -1,0 +1,35 @@
+// ==========================================================================
+// Sass Mixins
+// ==========================================================================
+
+@mixin flex-center($gap: null) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @if $gap {
+        gap: $gap;
+    }
+}
+
+@mixin interactive-surface {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background-color: var(--color-surface);
+    color: var(--color-text-strong);
+    transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+@mixin truncate-lines($lines: 2) {
+    display: -webkit-box;
+    overflow: hidden;
+    line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+}
+
+@mixin respond-down($breakpoint) {
+    @media (max-width: $breakpoint) {
+        @content;
+    }
+}

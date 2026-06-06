@@ -1,0 +1,59 @@
+// ==========================================================================
+// Auth Sass Source
+// ==========================================================================
+
+@use "mixins" as *;
+
+.auth {
+    width: 100%;
+    max-width: var(--size-auth-card);
+    padding: 1.875rem;
+    border-radius: var(--radius-lg);
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-auth);
+
+    &__tabs {
+        display: flex;
+        margin-bottom: 1.875rem;
+        border-bottom: 2px solid var(--color-input);
+    }
+
+    &__tab {
+        flex: 1;
+        padding: var(--space-3);
+        border: 0;
+        background-color: transparent;
+        color: var(--color-text-muted);
+
+        &.active {
+            margin-bottom: -2px;
+            border-bottom: 2px solid var(--color-accent);
+            color: var(--color-accent);
+        }
+    }
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: var(--space-5);
+    }
+
+    &__input {
+        padding: var(--space-3);
+        border: 1px solid transparent;
+        border-radius: var(--radius-sm);
+        outline: none;
+        background-color: var(--color-input);
+        color: var(--color-text);
+
+        &:focus {
+            border-color: var(--color-accent);
+        }
+    }
+
+    @include respond-down(35.9375rem) {
+        width: 95%;
+        max-width: 21.875rem;
+        padding: var(--space-5);
+    }
+}

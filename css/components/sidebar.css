@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
+.app-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: var(--size-sidebar-collapsed);
+    padding: var(--space-8) var(--space-2);
+    overflow: hidden;
+    border-right: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    white-space: nowrap;
+    transition: width var(--transition-sidebar), padding var(--transition-sidebar);
+}
+
+.app-sidebar:hover {
+    width: var(--size-sidebar-expanded);
+    padding: var(--space-8) var(--space-4);
+}
+
+.app-sidebar__section {
+    margin-bottom: var(--space-8);
+}
+
+.app-sidebar__title {
+    margin: 0 0 var(--space-3) var(--space-3);
+    color: var(--color-text-section);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.app-sidebar:hover .app-sidebar__title {
+    opacity: 1;
+}
+
+.app-sidebar__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.app-sidebar__item {
+    margin-bottom: var(--space-1);
+}
+
+.app-sidebar__button {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    width: 100%;
+    padding: var(--space-3);
+    border: 0;
+    border-radius: var(--radius-md);
+    background-color: transparent;
+    color: var(--color-text-soft);
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-medium);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.app-sidebar__button:hover {
+    background-color: var(--color-surface-raised);
+    color: var(--color-text-strong);
+}
+
+.app-sidebar__button.active {
+    background-color: var(--color-surface-active);
+    color: var(--color-text-strong);
+    font-weight: var(--font-weight-semibold);
+}
+
+.app-sidebar__button--logout {
+    margin-top: auto;
+    border: 1px solid var(--color-border-strong);
+    color: var(--color-danger);
+}
+
+.app-sidebar__button--logout:hover {
+    background-color: var(--color-danger);
+    color: var(--color-text-strong);
+}
+
+.app-sidebar__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.app-sidebar__text {
+    opacity: 0;
+    transform: translateX(-0.625rem);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.app-sidebar:hover .app-sidebar__text {
+    opacity: 1;
+    transform: translateX(0);
+}
