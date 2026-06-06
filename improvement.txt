@@ -1,1 +1,2 @@
-- Make it responsive for Moblil
+- search button in add media
+- remove input in the find tap
